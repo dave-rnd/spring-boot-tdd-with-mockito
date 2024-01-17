@@ -9,7 +9,6 @@ import org.mockito.Mockito.`when`
 import org.mockito.junit.jupiter.MockitoExtension
 import tdd.api.repository.Pokemon
 import tdd.api.repository.PokemonRepository
-import tdd.api.service.PokemonService
 import tdd.api.service.PokemonServiceImpl
 
 @ExtendWith(MockitoExtension::class)
@@ -19,6 +18,7 @@ class PokemonServiceImplTests {
   
   @InjectMocks
   private lateinit var pokemonService: PokemonServiceImpl
+  
   @Test
   fun `pokemon service create pokemon`() {
     // given
@@ -35,6 +35,6 @@ class PokemonServiceImplTests {
     val result = pokemonService.createPokemon(pokemon)
     
     // then
-    assert(result != null)
+    assert(result.id == null)
   }
 }
